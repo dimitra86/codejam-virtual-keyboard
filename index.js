@@ -1,4 +1,5 @@
 let textarea = document.createElement('textarea');
+textarea.id = 'input';
 document.body.append(textarea);
 
 let div = document.createElement('div');
@@ -32,6 +33,8 @@ document.onkeypress = function(event) {
         element.classList.remove('active');
     });
     document.querySelector('#keyboard .key[data="' + event.keyCode + '"]').classList.add('active');
+    let n1 = event.keyCode;
+    document.getElementById('input').innerHTML += String.fromCharCode(n1);
 }
 
 document.querySelectorAll('#keyboard .key').forEach(function(element) {
@@ -40,7 +43,13 @@ document.querySelectorAll('#keyboard .key').forEach(function(element) {
             element.classList.remove('active');
         });
         let code = this.getAttribute('data');
+
         this.classList.add('active');
+
+        let n2 = event.keyCode;
+        // let n2 = div.getAttribute('data');
+        document.getElementById('input').innerHTML += n2;
+        console.log(n2);
     }
 
 });
